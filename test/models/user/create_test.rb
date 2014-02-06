@@ -2,9 +2,9 @@ require 'test_helper'
 
 class User::CreateTest < ActiveSupport::TestCase
   def test_create_1_record
-    begin_count = User.count
-    create_random_user
-    assert_equal begin_count + 1, User.count
+    assert_difference "User.count", 1 do
+      create_random_user
+    end
   end
 
   def create_random_user
