@@ -13,6 +13,15 @@ class User::ValidTest < ActiveSupport::TestCase
     assert_includes mike.errors[:email], "can't be blank"
   end
 
+  def test_invalid_with_existing_email
+    mike = users :mike
+    mike2 = User.create email: mike.email,
+                        password: "mike2",
+                        password_confirmation: "mike2"
+    refute_valid mike2
+    assert_includes mike2.errors[:email], "has already been taken"
+  end
+
   def assert_valid user
     assert_predicate user, :valid?
   end
