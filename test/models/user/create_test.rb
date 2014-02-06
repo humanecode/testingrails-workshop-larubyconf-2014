@@ -7,6 +7,12 @@ class User::CreateTest < ActiveSupport::TestCase
     end
   end
 
+  def test_create_3_records
+    assert_difference "User.count", 3 do
+      3.times { create_random_user }
+    end
+  end
+
   def create_random_user
     random = SecureRandom.hex(8)
     User.create! email: "#{random}@example.com",
