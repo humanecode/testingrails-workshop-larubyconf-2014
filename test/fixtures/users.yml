@@ -2,3 +2,18 @@ mike:
   name: Mike Moore
   email: mike@example.com
   password_digest: <%= BCrypt::Password.create "mike" %>
+
+author:
+  name: Heidi McHenderson
+  email: heidi@example.com
+  password_digest: <%= BCrypt::Password.create "author" %>
+
+member:
+  name: Sara McSararison
+  email: sara@example.com
+  password_digest: <%= BCrypt::Password.create "member" %>
+
+nonmember:
+  name: Jack McJackerson
+  email: jack@example.com
+  password_digest: <%= BCrypt::Password.create "nonmember" %>
