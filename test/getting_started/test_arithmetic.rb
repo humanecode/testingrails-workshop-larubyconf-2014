@@ -12,4 +12,10 @@ class TestArithmetic < MiniTest::Unit::TestCase
   def test_one_divided_by_zero_float_is_infinity
     assert_equal Float::INFINITY, 1 / 0.0
   end
+
+  def test_one_divided_by_zero_int_raises
+    assert_raises ZeroDivisionError do
+      1 / 0
+    end
+  end
 end
