@@ -1,11 +1,29 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+today_member:
+  post: today
+  user: member
+  body: Yay!
 
-one:
-  post_id: 1
-  user_id: 1
-  body: MyText
+today_nonmember:
+  post: today
+  user: nonmember
+  body: '+1'
 
-two:
-  post_id: 1
-  user_id: 1
-  body: MyText
+yesterday_member:
+  post: yesterday
+  user: member
+  body: How is your posture?
+
+yesterday_author:
+  post: yesterday
+  user: author
+  body: Not great, why?
+
+yesterday_member_again:
+  post: yesterday
+  user: member
+  body: Try changing yoru posture, it helped me.
+
+yesterday_member_again:
+  post: yesterday
+  user: mike
+  body: I agree
