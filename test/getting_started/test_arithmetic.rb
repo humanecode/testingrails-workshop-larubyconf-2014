@@ -8,4 +8,8 @@ class TestArithmetic < MiniTest::Unit::TestCase
   def test_one_plus_one_isnt_zero
     refute_equal 0, 1 + 1
   end
+
+  def test_one_divided_by_zero_float_is_infinity
+    assert_equal Float::INFINITY, 1 / 0.0
+  end
 end
