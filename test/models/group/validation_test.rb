@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GroupTest < ActiveSupport::TestCase
+class Group::ValidationTest < ActiveSupport::TestCase
   def test_can_be_valid
     group = groups :dev
     assert group.valid?
