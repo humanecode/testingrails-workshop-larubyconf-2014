@@ -21,4 +21,20 @@ class Group::PostTest < ActiveSupport::TestCase
     refute_includes group.posts_for(yesterday), post
   end
 
+  # Retrieve a post for a given user and day: Group#post_for(user, date)
+
+  def test_get_a_post_by_user_date
+    post = posts :today
+    user = users :author
+    today = Time.zone.today
+    assert_equal post, group.post_for(user, today)
+  end
+
+  def test_returns_nil_post_by_user_date
+    post = posts :today
+    user = users :nonmember
+    today = Time.zone.today
+    assert_nil group.post_for(user, today)
+  end
+
 end
