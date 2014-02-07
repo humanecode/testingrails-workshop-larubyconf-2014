@@ -1,7 +1,7 @@
 Standup::Application.routes.draw do
   root "home#index"
 
-  resources :groups, only: [:index]
+  resources :groups, only: [:index, :show]
 
   # Session login/logout
   get    "login"  => "sessions#new",     as: :login

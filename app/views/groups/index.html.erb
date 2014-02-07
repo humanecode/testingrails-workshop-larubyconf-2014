@@ -2,6 +2,6 @@
 
 <ul>
 <% @groups.each do |group| %>
-  <li><%= group.name %></li>
+  <li><%= link_to group.name, group %></li>
 <% end %>
 </ul>
