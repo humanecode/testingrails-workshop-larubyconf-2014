@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find params[:id]
     @posts = @group.posts_for date
+    @date = date
   end
 
   def date
@@ -18,8 +19,7 @@ class GroupsController < ApplicationController
   end
 
   def redirect_on_bad_date
-    @date = date
-    if @date.nil?
+    if date.nil?
       redirect_to group_path(params[:id])
       return
     end

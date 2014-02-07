@@ -6,8 +6,6 @@
 <% end %>
 </ul>
 
-<% if current_user.present? &&
-      ( @group.is_member?(current_user) &&
-        @group.post_for(current_user, @date).nil? ) %>
+<% if can_create_post? %>
   <%= render 'posts/form' %>
 <% end %>
