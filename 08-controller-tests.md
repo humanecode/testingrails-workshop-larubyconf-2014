@@ -3,6 +3,8 @@ Controller Tests
 
 So far we have focused on the domain models. We haven't built any UI. Let's move out away from the domain and into the presentation tier.
 
+[Standup Mocks](standup-mocks.pdf)
+
 What is the purpose of controller tests?
 ----------------------------------------
 
@@ -32,6 +34,11 @@ Controller responsibilities
 
 (from https://www.youtube.com/watch?v=iUe6tacW3JE&t=6m33s)
 
+How Does ActionController::TestCase Work?
+-----------------------------------------
+
+[Rails documentation](http://api.rubyonrails.org/classes/ActionController/TestCase.html)
+
 ActionController::TestCase Assertions
 -------------------------------------
 
@@ -54,25 +61,18 @@ But what is most useful for a controller test to tell us?
 Exercises
 ---------
 
-Create Groups and Days controllers, with Days nested under Groups. Using test data from fixtures, write the following tests and make them pass:
+Create a Groups controller, with an index and a show action. Drive the code using tests, using test data from fixtures.
 
-1. `HomepageControllerTest#test_index` (shows groups)
-2. `GroupsControllerTest#test_show` (shows days for group)
-3. `DaysControllerTest#test_show` (shows posts for group/day)
+**Hint** Check out `ApplicationController#current_user` for how controllers determine which user is logged in.
 
-Create Posts controller, nested under Days controller. Add link to posts#new from days#show template. Using test data from fixtures, write the following tests and make them pass:
+1. Test that groups#index displays a list of groups
+2. Test that groups#show displays a list of posts
+3. Test that groups#show displays posts for date in the querystring
+4. Test that groups#show will redirect when given a bad date
 
-4. `PostsControllerTest#test_show` (shows post)
-5. `PostsControllerTest#test_new`
-6. `PostsControllerTest#test_create`
+Create a Posts controller, and a nested Comments controller
 
-Create Comments controller, nested under Posts controller. Show comments on posts#new template. Add link to comments#new from posts#show template. Using test data from fixtures, write the following tests and make them pass:
-
-7. `PostsControllerTest#test_show` (shows comments)
-8. `CommentsControllerTest#test_new`
-9. `CommentsControllerTest#test_create`
-
-Optional
---------
-
-Cleanup! Now that we have our controllers, how do we refactor and remove the duplication in our controllers and make them pretty?
+5. Test that posts#show displays a post
+6. Test that posts#show displays a list of comments
+7. Test that posts#create creates a new post
+8. Test that comments#create creates a new comment
