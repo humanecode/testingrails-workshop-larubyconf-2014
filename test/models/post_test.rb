@@ -62,10 +62,14 @@ class PostTest < ActiveSupport::TestCase
     refute post2.valid?
     assert_includes post2.errors[:user_id], "has already been taken"
   end
+
+  # Add a new comment: Post#add_comment(user, body)
+
+  def test_can_add_a_new_comment
+    post = posts :today
+    user = users :nonmember
+    assert_difference "Comment.count" do
+      post.add_comment user, "New Comment!"
+    end
+  end
 end
-
-
-
-
-
-
