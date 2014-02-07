@@ -23,4 +23,9 @@ class Group < ActiveRecord::Base
   def post_for user, date
     Post.where(group: self, date: date, user: user).first
   end
+
+  def add_post user, date, body
+    Post.create group_id: self.id, user_id: user.id,
+                date:     date,    body:    body
+  end
 end

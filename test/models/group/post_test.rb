@@ -37,4 +37,11 @@ class Group::PostTest < ActiveSupport::TestCase
     assert_nil group.post_for(user, today)
   end
 
+  # Add a new post: Group#add_post(user, date, body)
+
+  def test_can_add_a_new_post
+    assert_difference "Post.count" do
+      group.add_post users(:member), Time.zone.today, "New Post!"
+    end
+  end
 end
