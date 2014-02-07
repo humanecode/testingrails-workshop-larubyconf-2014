@@ -34,6 +34,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem "minitest-rails"
 gem "autotest-rails"
 
 # Use ActiveModel has_secure_password
