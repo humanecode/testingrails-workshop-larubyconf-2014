@@ -15,4 +15,8 @@ class Group < ActiveRecord::Base
   def remove_member user
     users.destroy user if is_member? user
   end
+
+  def posts_for date
+    Post.where(group: self, date: date)
+  end
 end
