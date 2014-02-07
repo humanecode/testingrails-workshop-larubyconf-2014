@@ -14,4 +14,8 @@ class Post < ActiveRecord::Base
                    body:    body
   end
 
+  def comments
+    Comment.where(post: self)
+  end
+
 end

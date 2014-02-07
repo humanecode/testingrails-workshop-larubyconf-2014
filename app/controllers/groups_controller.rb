@@ -18,7 +18,8 @@ class GroupsController < ApplicationController
   end
 
   def redirect_on_bad_date
-    if date.nil?
+    @date = date
+    if @date.nil?
       redirect_to group_path(params[:id])
       return
     end

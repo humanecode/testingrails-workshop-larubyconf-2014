@@ -2,6 +2,12 @@
 
 <ul>
 <% @posts.each do |post| %>
-  <li><%= post.body %></li>
+  <li><%= link_to post.body, post %> - <%= post.user.name %></li>
 <% end %>
 </ul>
+
+<% if current_user.present? &&
+      ( @group.is_member?(current_user) &&
+        @group.post_for(current_user, @date).nil? ) %>
+  <%= render 'posts/form' %>
+<% end %>

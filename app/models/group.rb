@@ -4,6 +4,10 @@ class Group < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
 
+  def empty_post date
+    Post.new(group: self, date: date)
+  end
+
   def is_member? user
     users.include? user
   end
